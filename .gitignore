@@ -1,0 +1,10 @@
+# Ignorar todos los archivos PDF
+*.pdf
+
+# Ignorar carpetas específicas
+CKA/
+devops/
+docker/
+KCNA/
+linux/
+# Puedes añadir más carpetas aquí
