@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-webapp
+  labels:
+    name: simple-webapp
+spec:
+  containers:
+  - name: simple-webapp
+    image: simple-webapp
+    ports:
+      - containerPort: 8080
+    # http test
+    livenessProbes:
+      httpGet:
+        path: /api/healthy
+        port: 8080
+      initialDelaySeconds: 10 # minimun 10 seconds to warm up
+      periodSeconds: 5  # 
+      failureThreshold: 8 # by default the app try to initialize 3 attempts, if you want, you can increase that value
+        
+    # tcp test
+    # livenessProbes:
+    #   tcpSocket:
+    #     port: 3306
+
+    # exec test
+    # livenessProbes:
+    #   exec:
+    #     command: 3306
+    #       - cat
+    #       - /app/is_healthy
+     
