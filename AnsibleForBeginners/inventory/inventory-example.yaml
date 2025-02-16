@@ -1,0 +1,45 @@
+# Inventory
+server1.company.com
+server2.company.com
+
+[mail]
+server3.company.com
+server4.company.com
+
+[db]
+server5.company.com
+server6.company.com
+
+[web]
+server7.company.com
+server8.company.com
+
+# Ansible parameters
+web ansible_host=server1.company.com ansible_connection=ssh ansible_user=root
+db ansible_host=server2.company.com ansible_connection=winrm ansible_user=admin
+mail ansible_host=server3.company.com ansible_connection=ssh ansible_user=P@#
+web2 ansible_host=server4.company.com ansible_connection=winrm
+
+localhost ansible_connection=localhost
+
+# Different Inventory Format Types
+# INI Format is the simplest and most straighforward 
+[webservers]
+web1.company.com
+web2.company.com
+
+[dbservers]
+db1.company.com
+db2.company.com
+
+# YAML format is more structured and flexible that the INI format
+all:
+  children:
+    webservers:
+      hosts:
+        web1.example.com
+        web2.example.com
+    dbservers:
+      hosts:
+        db1.example.com
+        db2.example.com
