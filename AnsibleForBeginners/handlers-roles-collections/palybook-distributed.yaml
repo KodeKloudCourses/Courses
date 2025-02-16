@@ -1,0 +1,10 @@
+-
+  name: Install and Configure MySQL 
+  hosts: db-server 
+  roles: 
+    - geerlingguy.mysql 
+-
+  name: Install and Configure Web Server  
+  hosts: web-server 
+  roles: 
+    - nginx
