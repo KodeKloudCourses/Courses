@@ -1,0 +1,9 @@
+# my global config
+global:
+  scrape_configs:
+    - job_name: "prometheus"
+      static_configs:
+        - targets: ["localhost:9090"]
+
+# The global section defines default parameters, which can be inherited or overridden by other sections.
+# The scrape_configs section specifies the target endpoints for scraping metrics.
